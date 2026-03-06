@@ -89,6 +89,13 @@ header {
 .navbar {
   padding: 0 !important;
 }
+
+.navbar-toggler {
+  border: none;
+  box-shadow: none !important;
+  position: relative;
+  z-index: 2000;
+}
 .navbar-container {
   max-width: 1844px !important;
 }
@@ -236,7 +243,7 @@ header {
   background: #000;
 }
 
-/* <!-- Discover Product---------------- --> */
+/* -- Discover Product------------> */
 
 .discover-sec {
   padding: 150px 0 0;
@@ -492,6 +499,65 @@ input[type="email"]:focus {
 @media screen and (max-width: 992px) {
   /* NAvbar section */
 
+  /* ===== Custom Hamburger ===== */
+
+.navbar-toggler {
+  border: none;
+  box-shadow: none !important;
+  position: relative;
+  z-index: 2000;
+}
+
+/* Container */
+.custom-toggler {
+  width: 28px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.custom-toggler span,
+.custom-toggler::before,
+.custom-toggler::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: white;
+  left: 0;
+  transition: transform 0.3s linear
+}
+
+/* Middle */
+.custom-toggler span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Top */
+.custom-toggler::before {
+  top: 0;
+}
+
+/* Bottom */
+.custom-toggler::after {
+  bottom: 0;
+}
+
+/* ===== Cross Animation ===== */
+
+.navbar-toggler.active .custom-toggler span {
+  opacity: 0;
+}
+
+.navbar-toggler.active .custom-toggler::before {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.navbar-toggler.active .custom-toggler::after {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
   .offcanvas {
     flex-direction: column;
     background: rgba(0, 0, 0, 0.5);
@@ -500,6 +566,7 @@ input[type="email"]:focus {
     padding-top: 75.5px;
   }
   .close-btn {
+    display: none;
     position: absolute;
     background: none;
     border: none;

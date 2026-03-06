@@ -33,10 +33,12 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="custom-toggler">
+              <span></span>
+            </span>
           </button>
           <div class="offcanvas offcanvas-end" id="navbarSupportedContent">
-            <div class="offcanvas-header">
+            <!--<div class="offcanvas-header">
               <button
                 type="button"
                 class="close-btn"
@@ -45,7 +47,7 @@
               >
                 <span></span>
               </button>
-            </div>
+            </div>-->
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -449,5 +451,17 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      const toggler = document.querySelector(".navbar-toggler");
+      const offcanvas = document.getElementById("navbarSupportedContent");
+
+      toggler.addEventListener("click", () => {
+        toggler.classList.add("active");
+      });
+      offcanvas.addEventListener("hidden.bs.offcanvas", function () {
+        toggler.classList.remove("active");
+      });
+    </script>
   </body>
 </html>
